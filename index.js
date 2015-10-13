@@ -28,6 +28,10 @@ VirtualSerialPort.prototype.open = function open(callback) {
     }
 };
 
+VirtualSerialPort.prototype.isOpen = function isOpen() {
+    return this.open;
+};
+
 VirtualSerialPort.prototype.write = function write(buffer, callback) {
     if (this.open) this.emit("dataToDevice", buffer);
     // This callback should receive both an error and result, however result is
