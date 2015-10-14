@@ -18,7 +18,15 @@ var VirtualSerialPort = function(path, options, openImmediately, callback) {
     }
 };
 
-util.inherits(VirtualSerialPort, events.EventEmitter);
+var VirtualStream = function() {
+};
+
+util.inherits(VirtualStream, events.EventEmitter);
+
+VirtualStream.prototype.pipe = function() {};
+VirtualStream.prototype.unpipe = function() {};
+
+util.inherits(VirtualSerialPort, VirtualStream);
 
 VirtualSerialPort.prototype.open = function open(callback) {
     this.open = true;
